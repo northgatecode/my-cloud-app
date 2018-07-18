@@ -7,8 +7,8 @@ steps:
   args:
   - set
   - image
-  - 'deployment/my-deployment'
-  - 'my-container=gcr.io/$PROJECT_ID/quickstart-image:$REVISION_ID'
+  - 'deployment/my-app'
+  - 'quickstart-image=gcr.io/$PROJECT_ID/quickstart-image:$REVISION_ID'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-west1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'

@@ -7,7 +7,6 @@ steps:
   args:
   - set
   - image
-  - deployment
   - 'deployment/my-deployment'
   - 'my-container=gcr.io/$PROJECT_ID/quickstart-image:$REVISION_ID'
   env:

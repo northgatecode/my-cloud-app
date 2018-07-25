@@ -1,9 +1,22 @@
 apiVersion: apps/v1
+
+kind: Service
+metadata:
+  name: myweb-service
+spec:
+  selector:
+    app: myweb
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9000
+
 kind: Deployment
 metadata:
   name: myweb-deployment
   labels:
     app: myweb-deployment
+    phase: test
 spec:
   replicas: 2
   selector:

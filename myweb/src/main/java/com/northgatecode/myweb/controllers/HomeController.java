@@ -10,7 +10,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("name", "Spring Boot !!!");
+        model.addAttribute("name", "Kubernetes !!!");
         return "home";
     }
 }

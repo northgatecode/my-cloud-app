@@ -4,5 +4,5 @@ metadata:
   name: basic-ingress
 spec:
   backend:
-    serviceName: web
+    serviceName: myweb-service
     servicePort: 80

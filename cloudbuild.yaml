@@ -3,11 +3,11 @@ steps:
   args: ['bash', './myweb/build.sh']
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/myweb:$REVISION_ID',
-          '-t', 'gcr.io/$PROJECT_ID/$myweb:latest',
+          '-t', 'gcr.io/$PROJECT_ID/myweb:latest',
           './myweb' ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/$PROJECT_ID/myweb:$REVISION_ID", 'gcr.io/$PROJECT_ID/$myweb:latest']
-images: ['gcr.io/$PROJECT_ID/myweb:$REVISION_ID', 'gcr.io/$PROJECT_ID/$myweb:latest']
+  args: ["push", "gcr.io/$PROJECT_ID/myweb:$REVISION_ID", 'gcr.io/$PROJECT_ID/myweb:latest']
+images: ['gcr.io/$PROJECT_ID/myweb:$REVISION_ID', 'gcr.io/$PROJECT_ID/myweb:latest']
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args:
 #   - set

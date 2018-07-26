@@ -3,17 +3,16 @@ steps:
   args: ['bash', './myweb/build.sh']
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/myweb:$REVISION_ID',
-          '-t', 'gcr.io/$PROJECT_ID/myweb:latest',
           './myweb' ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/$PROJECT_ID/myweb:$REVISION_ID", 'gcr.io/$PROJECT_ID/myweb:latest']
-images: ['gcr.io/$PROJECT_ID/myweb:$REVISION_ID', 'gcr.io/$PROJECT_ID/myweb:latest']
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args:
-#   - set
-#   - image
-#   - 'deployment/my-app'
-#   - 'quickstart-image=gcr.io/$PROJECT_ID/quickstart-image:$REVISION_ID'
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-west1-c'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+  args: ["push", "gcr.io/$PROJECT_ID/myweb:$REVISION_ID"]
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - 'deployment/myweb-deployment'
+  - 'myweb=gcr.io/$PROJECT_ID/myweb:$REVISION_ID'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+images: ['gcr.io/$PROJECT_ID/myweb:$REVISION_ID']

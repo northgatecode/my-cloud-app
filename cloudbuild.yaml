@@ -5,7 +5,7 @@ steps:
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/myweb:$REVISION_ID', './myweb' ]
   - name: 'gcr.io/cloud-builders/docker'
     args: ["push", "gcr.io/$PROJECT_ID/myweb"]
-    images: ['gcr.io/$PROJECT_ID/myweb']
+  images: ['gcr.io/$PROJECT_ID/myweb']
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
     - set

@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: myweb
-        image: myweb:latest
+        image: gcr.io/my-cloud-app-210506/myweb:latest
         ports:
         - containerPort: 9000
